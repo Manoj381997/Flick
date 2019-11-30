@@ -1,0 +1,235 @@
+.myCanvas {
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 0;
+}
+
+header{
+  background:  linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url("../../../Images/astronomy-1867616_1920.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+}
+header > div {
+  margin-top: 200px;
+}
+header > div  h1 {
+  text-align: center;
+  color: white;
+  height: 60px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  margin-top: 100px;
+}
+/* Alternate image */
+img {
+  background-image: url("../../../Images/stage-2032668_1920.jpg");
+  height: auto;
+}
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#celeb-text-block {
+  right: 80px;
+}
+a:hover {
+  cursor: pointer;
+  color: deeppink;
+}
+.scroll-spy{
+  align-self: flex-end;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  height: 30px;
+  width: 35px;
+  border-radius: 100%;
+  border: 2px solid ghostwhite;
+}
+i.icon-chevron-down {
+  color: whitesmoke;
+  position: absolute;
+  margin-left: 8px;
+  margin-top: 5px;
+}
+.scroll-spy:hover{
+  cursor: pointer;
+}
+
+owl-carousel{
+  margin-left: 10px;
+}
+#movies, #shows, #celebrity{
+  height: 100%;
+  width: 100%;
+}
+#movieBg{
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url("../../../Images/audience-1850665_1920.jpg") fixed no-repeat;
+  background-size: cover;
+}
+
+#movieBg > div {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 20px 0 20px;
+  padding-left: 20px;
+}
+#showsBg{
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url("../../../Images/background-2011742_1920.jpg") fixed no-repeat;
+  background-size: cover;
+}
+#showsBg > div {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 20px 0 20px;
+  padding-left: 20px;
+}
+
+#celebBg{
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url("../../../Images/wood-floor-1170745_1920.jpg") fixed no-repeat;
+  background-size: cover;
+}
+
+#celebBg > section > div {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 20px 0 20px;
+  padding-left: 20px;
+}
+/* Mobile formats */
+@media only screen and (max-width:1920px) and (min-width:1367px) {
+
+}
+
+@media only screen and (max-width:1366px) and (min-width:768px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/astronomy-1867616_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+
+  #celebrity .container div {
+    margin-left: 35px;
+  }
+
+  #celeb-text-block {
+    right: 40px;
+  }
+}
+
+@media only screen and (max-width:767px) and (min-width:627px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/astronomy-1867616_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 10px;
+  }
+  #celeb-text-block {
+    right: 40px;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width:626px) and (min-width:489px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/astronomy-1867616_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 10px;
+  }
+  #celeb-text-block {
+    right: 40px;
+  }
+  h2{
+    margin-top: 10px;
+  }
+  header > div > h1 {
+    font-size: 30px;
+    width: 400px;
+  }
+}
+
+
+@media only screen and (max-width:488px) and (min-width:400px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/astronomy-1867616_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 20px;
+  }
+  .scroll-spy{
+    align-self: flex-end;
+    position: absolute;
+    bottom: 5%;
+    left: 48%;
+    height: 30px;
+    width: 35px;
+    border-radius: 100%;
+    border: 2px solid ghostwhite;
+  }
+  #celeb-text-block {
+    right: 20px;
+    bottom: 5px;
+  }
+  #celeb-text-block > a > h6 {
+    font-size: small;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+  header > div > h1 {
+    width: 350px;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width:399px) and (min-width: 0px){
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/astronomy-1867616_1920.jpg") no-repeat;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 20px;
+  }
+  #celeb-text-block {
+    right: 40px;
+  }
+  #celeb-text-block > a > h6 {
+    font-size: small;
+  }
+  h2 {
+    margin-top: 10px;
+  }
+  header > div > h1 {
+    width: 300px;
+    font-size: 25px;
+  }
+}

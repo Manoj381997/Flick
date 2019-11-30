@@ -1,0 +1,150 @@
+.castName:hover, .cabinFont:hover, .relDate:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+.relDate{
+  font-family: "Roboto", sans-serif;
+  font-size: smaller;
+  font-weight: normal;
+  margin: auto;
+}
+img.casts{
+  border-radius: 80%;
+  height: 70%;
+  transition: all .3s ease-in-out;
+}
+img.casts:hover {
+  transform: scale(1.1);
+}
+#carouselExampleIndicators {
+  width: 80%;
+  margin-left: 10%;
+}
+p.castName{
+  margin-left: 10px;
+}
+.simMovie{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 90%;
+}
+.comment{
+  color: black;
+  border: 1px solid black;
+  background-color: whitesmoke;
+  padding: 10px;
+}
+
+
+/* Similar Shows  */
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.box {
+  margin: 12px auto;
+  width: 290px;
+  height: 390px;
+  text-align: center;
+  border-radius: 3px;
+  transition: 200ms ease-in-out;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+.box:hover {
+  cursor: pointer;
+  margin-bottom: -10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+/* Mobile formats */
+@media only screen and (max-width:1920px) and (min-width:1367px) {
+
+}
+
+@media only screen and (max-width:1366px) and (min-width:768px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+
+  #celebrity .container div {
+    margin-left: 35px;
+  }
+  #carouselExampleIndicators {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width:767px) and (min-width:627px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 10px;
+  }
+  #carouselExampleIndicators {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:626px) and (min-width:489px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 10px;
+  }
+  img.casts{
+    height: 80%;
+    width: 10%;
+  }
+  #carouselExampleIndicators {
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width:488px) and (min-width:360px) {
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 20px;
+  }
+  img.casts{
+    height: 80%;
+    width: 10%;
+  }
+  #carouselExampleIndicators {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width:359px) and (min-width: 0px){
+  header {
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat;
+    width: 100%;
+  }
+  #celebrity .container div {
+    margin-left: 20px;
+  }
+  img.casts{
+    height: 80%;
+    width: 10%;
+  }
+  #carouselExampleIndicators {
+    width: 100%;
+    /*margin-left: 10%;*/
+  }
+}

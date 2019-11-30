@@ -1,0 +1,145 @@
+<ngx-loading-bar [includeSpinner]="false" color="#ED0422" height="3px" runInterval="300"></ngx-loading-bar>
+
+<h2 class="text-center title animated zoomIn" style="margin-top: 100px;"> {{ movie.title }} </h2>
+<br/>
+<h3 class="text-center overview">({{ movie.release_date.slice(0, movie.release_date.indexOf('-')) }})</h3>
+<br/>
+
+<div class="container">
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-md-12 col-sm-12 col-lg-6 col-12">
+      <img class="img-fluid w-100 h-auto" title="{{movie.title}}"
+           src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
+           onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-6 col-12">
+      <h2 class="text-center title animated zoomIn"><b>Synopsis</b></h2>
+      <br/>
+      <p class="overview text-center"> {{movie.overview}} </p>
+      <p class="text-center overview"><b class="title">Genre :</b> {{genres}} </p>
+      <p class="text-center overview"><b class="title">Rating :</b> {{movie.vote_average}} out of 10
+        ({{movie.vote_count}} Ratings)</p>
+      <p class="text-center overview"><b class="title">Runtime :</b> {{movie.runtime}} minutes </p>
+      <p class="text-center overview"><b class="title">Status :</b> {{movie.status}} </p>
+
+      <br/>
+      <br/>
+
+      <!--  Casts  -->
+      <h2 class="title text-center animated zoomIn">Cast</h2>
+      <section *ngIf="castDetails.cast.length != 0; else movieCastsNotAvailable">
+
+      <br/><br/>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-6" *ngFor="let cast of castDetails.cast | slice: 0:4"
+             style="padding: 20px;">
+          <a routerLink="/celebDetails/{{cast.id}}" routerLinkActive="active current">
+            <img class="casts img-fluid w-100" src="https://image.tmdb.org/t/p/w342{{cast.profile_path}}"
+                 onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';"/>
+          </a>
+          <p class="names text-center text-right">{{cast.name}}</p>
+        </div>
+      </div>
+      </section>
+      <ng-template #movieCastsNotAvailable>
+        <h4 class="overview text-center"> Casts Not Available</h4></ng-template>
+
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <!-- Image Gallery  -->
+  <div *ngIf="images.length != 0">
+    <h2 class="text-center title" style="margin-top: 50px;">Image Gallery</h2>
+    <br/>
+    <br/>
+    <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
+
+      <!-- Indicators  -->
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" *ngFor="let image of images; index as i" [attr.data-slide-to]="i"
+            [ngClass]="i == 0 ? 'active' : ''"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div *ngFor="let image of images; let i = index" [ngClass]="i == 0 ? 'carousel-item active' : 'carousel-item'">
+          <a href="https://image.tmdb.org/t/p/original{{images[i].file_path}}" data-lightbox="gallery">
+            <img class="d-block w-100" src="https://image.tmdb.org/t/p/original{{images[i].file_path}}"
+                 onerror="this.onerror=null; this.src= 'https://res.cloudinary.com/manojkumar/image/upload/v1534334502/stage-2032668_1920.jpg';">
+          </a>
+        </div>
+      </div>
+
+      <!-- Left and Right Controls -->
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <!-- Video Gallery  -->
+  <div *ngIf="videos.length != 0">
+    <h2 class="text-center title" style="margin-top: 80px;">Videos</h2>
+    <br/>
+    <br/>
+    <div class="row">
+      <div class="embed-responsive embed-responsive-16by9 col-lg-5 col-md-5 col-sm-5 col-10"
+           *ngFor="let video of videos | slice: 0:4; index as i" style="margin: 0 0 3% 6%;">
+
+        <div class="clearfix" *ngIf="i%2 == 0"></div>
+
+        <div *ngIf="video">
+          <youtube-player class="embed-responsive-item" videoId="{{ video.key }}"></youtube-player>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <!--  Reviews  -->
+  <h2 class="text-center title" *ngIf="reviews.length != 0" style="margin-top: 50px;"> Reviews </h2>
+  <br/>
+  <br/>
+  <div class="row col text-center" *ngFor="let review of reviews; index as i">
+    <div class="col-md-10 col-md-offset-1 mx-auto comment">
+      <p class="text-center w-100 text-dark revHead"> Review {{i + 1}} </p>
+      <p style="font-size: small; font-family: 'Apple Color Emoji';">{{review.content}}</p>
+      <p class="font-italic text-center text-dark"> Reviewed by {{ review.author }} </p>
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <!-- Similar Movies -->
+  <h2 *ngIf="similarMovies.length != 0" class="text-center title" style="margin-top: 50px;"> Similar Movies </h2>
+  <br/>
+  <br/>
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6" *ngFor="let movie of similarMovies | slice: 0:12; index as i"
+         style="margin-bottom: 4%; padding: 20px;">
+
+      <div *ngIf="i%4 == 0" class="d-block clearfix w-100"></div>
+
+      <a routerLink="/details/{{movie.id}}" routerLinkActive="active current" style="text-decoration: none;">
+        <img class="simMovie img-fluid w-100" src="https://image.tmdb.org/t/p/w342{{ movie.poster_path }}"
+             title="{{movie.title}}"
+             aonerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';"/>
+      </a>
+      <a routerLink="/details/{{movie.id}}" routerLinkActive="active current">
+        <p class="cabinFont text-center ellipse">{{ movie.title}}</p>
+      </a>
+      <p class="relDate text-center">Rating: {{movie.vote_average}}/10 </p>
+    </div>
+  </div>
+</div>

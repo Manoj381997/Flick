@@ -1,0 +1,36 @@
+<ngx-loading-bar [includeSpinner]="false" color="#ED0422" height="3px" runInterval="300"></ngx-loading-bar>
+
+<div class="container">
+  <h2 class="title text-center animated" style="margin-top: 100px;"> Popular Celebrities </h2>
+  <hr>
+  <br/><br/>
+
+  <div class="row" infiniteScroll
+       [infiniteScrollDistance]="0" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+
+    <div class="col-6 col-sm-6 col-md-3 col-lg-3" *ngFor="let now of celebrities; index as i "
+         style="margin-bottom: 4%;">
+
+      <div *ngIf="i%4 == 0" class="d-flex clearfix w-100"></div>
+
+      <div> <!-- Card  effect -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 60px 0;">
+          <a class="card__circle" routerLink="/celebDetails/{{ now.id }}" routerLinkActive="active current">
+            <img class="card__circle img-fluid" src="https://image.tmdb.org/t/p/w342{{ now.profile_path }}"
+                 title="{{ now.name }}"
+                 onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+          </a>
+          <div class="card-information__text text-center">
+            <a routerLink="/celebDetails/{{ now.id }}" routerLinkActive="active current">
+              <div class="names card-information__text">{{ now.name }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <ngx-spinner *ngIf="!finished" bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff"
+                 type="line-scale-pulse-out-rapid"></ngx-spinner>
+  </div>
+</div>
+

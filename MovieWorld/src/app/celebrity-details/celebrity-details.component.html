@@ -1,0 +1,144 @@
+<ngx-loading-bar [includeSpinner]="false" color="#ED0422" height="3px" runInterval="300"></ngx-loading-bar>
+
+<h1 class="title text-center animated zoomIn" style="margin-top: 100px;">{{ celebDetails.name }}</h1>
+<br/><br/>
+
+<div class="container">
+  <div class="row">
+
+    <!-- poster -->
+    <div class="col-md-12 col-sm-12 col-lg-6">
+      <img class="poster img-fluid"
+           src="https://image.tmdb.org/t/p/w780{{celebDetails.profile_path}}" title="{{celebDetails.name}}"
+           onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+    </div>
+
+    <!-- Biography -->
+    <div class="col-md-12 col-sm-12 col-lg-6 text-center">
+      <h2 class="title text-center animated zoomIn" style="padding: 6px;">Biography</h2>
+      <p class="overview" style=" overflow : hidden; text-align: center; text-overflow: ellipsis; display: -webkit-box;
+         -webkit-line-clamp: 10; -webkit-box-orient: vertical;">
+        {{ celebDetails.biography }}</p>
+      <br/>
+      <h2 class="title text-center animated zoomIn">Personal Info</h2><br/>
+      <p class="overview text-center"><span class="title">Name: </span>{{ celebDetails.name }}</p>
+      <p class="overview text-center"><span class="title">Date of Birth: </span>{{ celebDetails.birthday }}</p>
+      <p class="overview text-center"><span class="title">Place of Birth: </span>{{ celebDetails.place_of_birth}}</p>
+
+      <div *ngIf="celebDetails.deathday != null">
+        <p class="overview text-center"><span class="title text-center">Died On: </span> {{ celebDetails.deathday }}</p>
+      </div>
+
+      <div *ngIf="celebDetails.gender == '1'; else elseBlock">
+        <p class="overview text-center"><span class="title text-center">Gender: </span> Female</p>
+      </div>
+      <ng-template #elseBlock><p class="overview text-center"><span class="title">Gender:</span> Male </p></ng-template>
+
+      <div *ngFor="let known of celebDetails.also_known_as | slice: 0:3; index as i">
+        <span *ngIf="i == 0" class="title text-center">Also Known as: <br/></span>
+        <span class="text-dark text-center">{{ known }}</span>
+      </div>
+      <br/>
+
+      <div *ngIf="celebDetails.homepage != null">
+        <p class="title text-center">Home Page: <a class="text-success overview" href="{{ celebDetails.homepage }}">
+          {{ celebDetails.homepage }}</a></p>
+      </div>
+
+    </div>
+  </div>
+  <br/>
+  <br/>
+
+  <!-- Navbar Containing details -->
+
+  <nav class="navbar navbar-expand-sm navbar-light justify-content-center">
+    <ul>
+      <li class="nav-item hvr-float-shadow">
+        <div>
+          <a class="nav-link overview" (click)="setClass('movie')">Movies <span class="sr-only">(current)</span></a>
+        </div>
+      </li>
+      <li class="nav-item hvr-float-shadow">
+        <div>
+          <a class="nav-link overview" (click)="setClass('show')">Shows</a>
+        </div>
+      </li>
+      <li class="nav-item hvr-float-shadow">
+        <div>
+          <a class="nav-link overview" (click)="setClass('image')">Images</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <br/><br/>
+
+  <!--  Movies  -->
+  <section [ngClass]="{'movies':checkMovie('movie'),'moviesValid': display('movie')}">
+    <h2 class="title text-center">Movies</h2>
+    <br/><br/>
+    <div *ngIf="movies.length != 0; else elseBlockMovies" class="row">
+      <div class="col-md-3 col-lg-3 col-sm-6 col-6" *ngFor="let movie of movies, index as i"
+           style="margin-bottom: 4%; padding: 20px;">
+
+        <div *ngIf="i%4 == 0" class="w-100 d-block"></div>
+        <a id="mov" routerLink="/details/{{movie.id}}" routerLinkActive="active current">
+          <img class="img-fluid imgPic w-100" title="{{movie.title}}"
+               src="https://image.tmdb.org/t/p/w342{{movie.poster_path}}"
+               onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+        </a>
+        <a routerLink="/details/{{movie.id}}">
+          <p class="ellipse names text-center">{{movie.title}}</p>
+        </a>
+      </div>
+    </div>
+    <ng-template #elseBlockMovies><p class="title text-center">Movies not available</p></ng-template>
+  </section>
+
+  <!--   Tv Shows   -->
+  <section [ngClass]="{'shows': checkShow('show'),'showsValid': display('show')}">
+    <h2 class="title text-center">Shows</h2>
+    <br/><br/>
+
+    <div *ngIf="shows.length != 0; else elseBlockShows" class="row">
+      <div class="col-md-3 col-lg-3 col-sm-6 col-6" *ngFor="let show of shows, index as i"
+           style="margin-bottom: 4%;  padding: 20px;">
+
+        <div *ngIf="i%4 == 0" class="clearfix w-100 d-block"></div>
+        <a routerLink="/showDetails/{{ show.id }}" routerLinkActive="active current">
+          <img class="img-fluid imgPic w-100" title="{{show.name}}"
+               src="https://image.tmdb.org/t/p/w342{{show.poster_path}}"
+               onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+        </a>
+        <a routerLink="/showDetails/{{ show.id }}">
+          <p class="ellipse names text-center">{{show.name}}</p>
+        </a>
+      </div>
+    </div>
+    <ng-template #elseBlockShows><p class="title text-center">Shows not available</p></ng-template>
+
+  </section>
+
+  <!--  Images  -->
+  <section [ngClass]="{'images': checkImage('image'),'imagesValid': display('image')}">
+    <h2 class="title text-center">Images</h2>
+    <br/><br/>
+    <div *ngIf="images.length != 0; else elseBlockCelebs" class="row">
+      <div class="col-md-3 col-lg-3 col-sm-6 col-6" *ngFor="let image of images, index as i"
+           style="margin-bottom: 4%;  padding: 20px;">
+
+        <div *ngIf="i%4 == 0" class="clearfix w-100 d-block"></div>
+
+        <a href="https://image.tmdb.org/t/p/w780{{image.file_path}}" data-lightbox="gallery">
+          <img class="img-fluid imgPic w-100" src="https://image.tmdb.org/t/p/w342{{image.file_path}}"
+               onerror="this.onerror=null; this.src= 'https://vignette.wikia.nocookie.net/janethevirgin/images/4/42/Image-not-available_1.jpg/revision/latest?cb=20150721102313';">
+        </a>
+      </div>
+    </div>
+    <ng-template #elseBlockCelebs><p class="title text-center">Images not available</p></ng-template>
+
+  </section>
+
+</div>
+<br/>
+<br/>

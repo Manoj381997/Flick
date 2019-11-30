@@ -1,0 +1,23 @@
+img{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 80%;
+}
+a {
+  padding: 1px;
+}
+.fa-chevron-circle-right{
+  color: #fff;
+}
+
+.movName{
+  font-family: "Roboto", sans-serif;
+  font-size: small;
+  margin: auto;
+}
+
+.movName:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
