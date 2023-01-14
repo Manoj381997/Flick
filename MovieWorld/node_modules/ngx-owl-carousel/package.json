@@ -1,0 +1,57 @@
+{
+  "name": "ngx-owl-carousel",
+  "description": "An angular (2 or 4) wrapper for jquery owl carousel library with dynamic carousel item change detection",
+  "version": "2.0.7",
+  "scripts": {
+    "build": "ngc -p tsconfig.json",
+    "lint": "tslint src/**/*.ts",
+    "test": "tsc && karma start",
+    "prepublish": "tsc",
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mujtaba01/ngx-owl-carousel"
+  },
+  "author": {
+    "name": "Mujtaba Hussain",
+    "email": "md.mujtaba@hotmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular 2",
+    "angular 4",
+    "angular 2 owl carousel",
+    "dynamic",
+    "responsive"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mujtaba01/ngx-owl-carousel/issues"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "owl.carousel": "^2.2.0",
+    "jquery": ">= 2.2.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^2.0.0",
+    "@angular/compiler": "^2.4.5",
+    "@angular/compiler-cli": "^2.4.5",
+    "@angular/core": "^2.0.0",
+    "@angular/platform-server": "^2.4.5",
+    "@types/es6-shim": "^0.31.32",
+    "@types/jasmine": "^2.5.40",
+    "@types/protractor": "^4.0.0",
+    "@types/selenium-webdriver": "^2.53.39",
+    "codelyzer": "^0.0.28",
+    "imports-loader": "^0.7.0",
+    "rxjs": "^5.0.1",
+    "tslint": "^3.15.1",
+    "typescript": "2.0.2",
+    "zone.js": "0.7.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
