@@ -67,7 +67,7 @@ p.castName{
 
 @media only screen and (max-width:1366px) and (min-width:768px) {
   header {
-    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../assets/images/popcorn-1433327_1920.jpg") no-repeat fixed;
     background-size: cover;
     width: 100%;
   }
@@ -82,7 +82,7 @@ p.castName{
 
 @media only screen and (max-width:767px) and (min-width:627px) {
   header {
-    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../assets/images/popcorn-1433327_1920.jpg") no-repeat fixed;
     background-size: cover;
     width: 100%;
   }
@@ -96,7 +96,7 @@ p.castName{
 
 @media only screen and (max-width:626px) and (min-width:489px) {
   header {
-    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../assets/images/popcorn-1433327_1920.jpg") no-repeat fixed;
     background-size: cover;
     width: 100%;
   }
@@ -115,7 +115,7 @@ p.castName{
 
 @media only screen and (max-width:488px) and (min-width:360px) {
   header {
-    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat fixed;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../assets/images/popcorn-1433327_1920.jpg") no-repeat fixed;
     background-size: cover;
     width: 100%;
   }
@@ -133,7 +133,7 @@ p.castName{
 
 @media only screen and (max-width:359px) and (min-width: 0px){
   header {
-    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../../Images/popcorn-1433327_1920.jpg") no-repeat;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../../assets/images/popcorn-1433327_1920.jpg") no-repeat;
     width: 100%;
   }
   #celebrity .container div {
