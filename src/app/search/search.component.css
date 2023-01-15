@@ -1,7 +1,0 @@
-img.imgPic {
-  height: 90%;
-}
-.mov-name:hover, .show-name:hover, .celeb-name:hover{
-  cursor: pointer;
-  opacity: 0.8;
-}
